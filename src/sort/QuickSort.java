@@ -20,7 +20,7 @@ public  class QuickSort extends AbstractSort implements Sortable {
 	@Override
 	public void sort(Comparable[] c, int off, int len) {
 		if(off >= len) return;
-		int x = this.partion2(c, off, len);
+		int x = this.partion3(c, off, len);
 		this.sort(c,off,x-1);
 		this.sort(c,x+1,len);
 		
@@ -85,15 +85,15 @@ public  class QuickSort extends AbstractSort implements Sortable {
 	 * @author flatychen
 	 */
 	private int partion3(Comparable[] c, int off, int len){
-		int x = off, i = off,j = len;
-		while( i<j ){
-			while(c[j].compareTo(c[x]) >= 0 && i<j ) j--;
-			while(c[i].compareTo(c[x]) <= 0 && i<j ) i++;
-			if(i<j) super.swap(c, i++, j--);
+		int x = len;
+		int lessPos = off,greatPos = off; 
+		for(;greatPos < len;greatPos++){
+			if(c[greatPos].compareTo(c[x]) <= 0){
+				super.swap(c, lessPos++, greatPos);
+			}
 		}
-		// 处理最后
-		super.swap(c, x, i);
-		return x;
+		super.swap(c,lessPos, len);
+		return lessPos;
 	}
 	
 	
