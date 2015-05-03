@@ -14,7 +14,7 @@ public  class SortTest {
 	
 	@Before
 	public void init(){
-		array = new Integer[20];
+		array = new Integer[5];
 		Random random = new Random(new Date().getTime());
 		for (int i = 0; i < array.length; i++) {
 			array[i] = random.nextInt(100);
@@ -34,6 +34,13 @@ public  class SortTest {
 	@Test
 	public void insertTest(){
 		InsertSort ss = new InsertSort();
+		ss.sort(array);
+		System.out.println(Arrays.toString(array));
+	}
+	
+	@Test
+	public void QuickTest(){
+		QuickSort ss = new QuickSort();
 		ss.sort(array);
 		System.out.println(Arrays.toString(array));
 	}

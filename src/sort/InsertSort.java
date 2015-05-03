@@ -11,8 +11,13 @@ package sort;
 public class InsertSort extends AbstractSort implements Sortable {
 
 	public void sort(Comparable [] c) {
+		this.sort(c, 0, c.length);
+	}
+
+	@Override
+	public void sort(Comparable[] c, int off, int len) {
 		Comparable currentObj = null;
-		for (int currentPos = 1; currentPos < c.length; currentPos++) {
+		for (int currentPos = off; currentPos < len; currentPos++) {
 			currentObj = c[currentPos];
 			int j = currentPos;
 			// find the  right position
@@ -24,10 +29,17 @@ public class InsertSort extends AbstractSort implements Sortable {
 			// insert 
 			c[j] = currentObj;
 		}
-
+		
 	}
 	
-	
+	public void sort1(Comparable[] c, int off, int len) {
+		for (int currentPos = off ; currentPos < len; currentPos++) {
+			for ( int j = currentPos  ; j > currentPos && super.less(c[j-1], c[j]) ; j--) {
+				super.swap(c, j-1, j);
+			}
+		}
+		
+	}
 	
 	
 

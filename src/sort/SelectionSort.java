@@ -21,9 +21,15 @@ public class SelectionSort extends AbstractSort implements Sortable {
 				if (super.less(c[j], c[minPos]))
 					minPos = j;
 			}
-			super.change(c, minPos, currentPos);
+			super.swap(c, minPos, currentPos);
 		}
 
+	}
+
+	@Override
+	public void sort(Comparable[] c, int off, int len) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

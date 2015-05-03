@@ -17,9 +17,9 @@ public abstract class AbstractSort {
 	 * @param j
 	 * @author flatychen
 	 */
-	protected void change(Comparable[] c, int i, int j) {
+	protected void swap(Comparable[] c, int i, int j) {
 		this.validateIndex(c.length, i, j);
-		Comparable t = c[i];
+		Comparable<Object> t = c[i];
 		c[i] = c[j];
 		c[j] = t;
 	}
@@ -33,6 +33,18 @@ public abstract class AbstractSort {
 	 * @author flatychen
 	 */
 	protected boolean less(Comparable a, Comparable b) {
+		return a.compareTo(b) < 0 ? true : false;
+	}
+	
+	/**
+	 * a 是否小于 b
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 * @author flatychen
+	 */
+	protected boolean lessOrEquals(Comparable a, Comparable b) {
 		return a.compareTo(b) < 0 ? true : false;
 	}
 
